@@ -46,8 +46,9 @@ function TransaccionCrear(props) {
     setLoading(true);
     var result = await API.getAllUsers();
     setLoading(false);
+    console.log(result);
     if(result.status){
-      if(result.data.lentgh>0){
+      if(result.data.length>0){
         setUserId(result.data[0].id)
         setUsers(result.data);
       }

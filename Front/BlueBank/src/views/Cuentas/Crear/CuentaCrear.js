@@ -13,7 +13,6 @@ function CuentaCrear() {
       cedula:document.getElementById("cedula").value,
     };
     var resultUser = await API.registerUser(user);
-    console.log(resultUser);
     if(resultUser.status){
       var newUser = resultUser.data;
       var cuenta = {

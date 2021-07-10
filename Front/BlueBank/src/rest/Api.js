@@ -225,11 +225,10 @@ const ENPOINT_DELETE_TRANSACCION = URL+"transacciones/delete/";
     return data;
   }
 
-  async function getTransacciones(userId, cuentaId){
+  async function getTransacciones(cuentaId){
     var data = {};
-    console.log(ENPOINT_GET_TRANSACCIONES +userId+"/"+cuentaId);
     try{
-      const query = await fetch(ENPOINT_GET_TRANSACCIONES +userId+"/"+cuentaId, {
+      const query = await fetch(ENPOINT_GET_TRANSACCIONES +cuentaId, {
         method: 'GET',
         credentials: "same-origin",
         headers: {

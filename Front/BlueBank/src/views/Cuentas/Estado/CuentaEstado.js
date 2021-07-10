@@ -53,16 +53,12 @@ function CuentaEstado(props) {
   };
 
   const getTransacciones = async (userId, cuentaId) => {
-    var result = await API.getTransacciones(userId, cuentaId);
+    var result = await API.getTransacciones(cuentaId);
     if(result.status){
       setTransacciones(result.data);
     }
     else{
-      var errors = result.message + "\n\n";
-      for (var error of result.data) {
-        errors += error.defaultMessage + "\n";
-      }
-      alert(errors);
+      alert(result.message);
     }
     setLoading(false);
   };
@@ -118,7 +114,6 @@ function CuentaEstado(props) {
                     <th>Tipo</th>
                     <th>Monto</th>
                     <th>Fecha</th>
-                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -131,11 +126,6 @@ function CuentaEstado(props) {
                       <td>{transaccion.tipo}</td>
                       <td>{(transaccion.tipo == "Retiro") ? <Badge variant="danger">-</Badge> : <Badge variant="success">+</Badge>} $ {transaccion.monto}</td>
                       <td>{transaccion.fecha}</td>
-                      <td>
-                        <ButtonGroup aria-label="Basic example">
-                          <Button variant="danger" onClick = {( ) => {} }>Eliminar</Button>
-                        </ButtonGroup>
-                      </td>
                     </tr>
                   ))
                 }

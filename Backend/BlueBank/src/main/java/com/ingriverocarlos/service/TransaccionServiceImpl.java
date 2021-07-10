@@ -16,8 +16,8 @@ public class TransaccionServiceImpl implements TransaccionService {
 
 	
 	@Override
-	public Iterable<Transaccion> getTransacciones(Integer userId, Integer cuentaId) {
-		return transaccionRepository.findAllByUserIdAndCuentaId(userId, cuentaId);
+	public Iterable<Transaccion> getTransacciones(Integer cuentaId) {
+		return transaccionRepository.findAllByCuentaId(cuentaId);
 	}
 	
 	@Override

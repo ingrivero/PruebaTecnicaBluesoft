@@ -17,7 +17,6 @@ function CuentaLista() {
     setLoading(true);
     var result = await API.cuentasList();
     setLoading(false);
-    console.log(result);
     if(result.status){
       setCuentas(result.data);
     }

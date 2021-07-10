@@ -19,6 +19,8 @@ public interface TransaccionRepository extends JpaRepository<Transaccion, Intege
 	 * */
 	Iterable<Transaccion>  findAllByUserId(Integer userId);
 	
-	Iterable<Transaccion>  findAllByUserIdAndCuentaId(Integer userId, Integer cuentaId);
+	//Iterable<Transaccion>  findAllByUserIdAndCuentaId(Integer userId, Integer cuentaId);
+	
+	Iterable<Transaccion>  findAllByCuentaId(Integer cuentaId);
 	
 }

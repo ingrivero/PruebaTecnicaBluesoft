@@ -40,10 +40,10 @@ public class TransaccionRestController {
 	@Autowired
 	private TransaccionServiceImpl transaccionServiceImpl;
 	
-	@GetMapping(path="/get/{userId}/{cuentaId}")
-	public @ResponseBody MyResponseBody<Iterable<Transaccion>> getTransacciones(@PathVariable("userId") Integer userId, @PathVariable("cuentaId") Integer cuentaId) {
+	@GetMapping(path="/get/{cuentaId}")
+	public @ResponseBody MyResponseBody<Iterable<Transaccion>> getTransacciones(@PathVariable("cuentaId") Integer cuentaId) {
 		
-		Iterable<Transaccion> transacciones = transaccionServiceImpl.getTransacciones(userId, cuentaId);
+		Iterable<Transaccion> transacciones = transaccionServiceImpl.getTransacciones(cuentaId);
 		MyResponseBody<Iterable<Transaccion>> response = new MyResponseBody<Iterable<Transaccion>>();
 		response.setStatus(true);
 		response.setMessage("Consulta Exitosa");
